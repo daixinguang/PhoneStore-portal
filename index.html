@@ -1,0 +1,1045 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="fonts/iconfont.css">
+    <script src="js/jquery-3.5.1.js"></script>
+    <style>
+        /*top-ad start*/
+        .top-banner {
+            width: 1200px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        .top-banner-img {
+            width: 1200px;
+            position: relative;
+            left: -360px;
+            /*vertical-align: top;*/
+        }
+
+        .button-top-banner-close {
+            width: 24px;
+            height: 24px;
+            position: absolute;
+            right: 0px;
+            top: 10px;
+            font-size: 0;
+            background: url(img/icon/icon01.svg) no-repeat;
+            background-position: -323px -84px;
+        }
+
+        /*top-ad end*/
+
+        /*捷径栏 end*/
+        .shortcut {
+            min-width: 1200px;
+            height: 36px;
+            line-height: 36px;
+            background-color: #2e2828;
+            position: relative;
+            z-index: 411;
+        }
+
+        .layout {
+            width: 1200px;
+            margin: 0 auto;
+        }
+
+        .shortcut a {
+            color: #afafaf;
+        }
+
+        .shortcut li {
+            float: left;
+            padding: 0 8px;
+            position: relative;
+        }
+
+        .shortcut li:first-child {
+            padding-left: 0;
+        }
+
+        .header {
+            min-width: 1200px;
+            height: 41px;
+            padding: 18px 0 15px 0;
+            background: #fff;
+            position: relative;
+            font-family: "Helvetica Neue", Helvetica, Arial, "Microsoft Yahei", "Hiragino Sans GB", "Heiti SC", "WenQuanYi Micro Hei", sans-serif;
+            line-height: 1.5;
+            box-shadow: 0 0 46px rgba(0, 0, 0, 0.03);
+        }
+
+        .logo {
+            margin-right: 34px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .logo img {
+            height: 36px;
+        }
+
+        .naver li.img {
+            float: left;
+            margin: 7px 24px 0 0;
+        }
+
+        .naver li.img img {
+            display: block;
+            height: 24px;
+        }
+
+        .naver li.img .naver-list {
+            /*width: 74px;*/
+            height: 24px;
+            padding: 0 5px;
+            font-size: 16px;
+            text-align: center;
+            color: #fff;
+            border-radius: 15px;
+        }
+
+        .search-bar {
+            margin-top: 5px;
+            background: #fff;
+            border-radius: 16px 16px 0 0;
+            position: relative;
+        }
+
+        .search-bar .search-bar-form {
+            line-height: 1;
+            width: 238px;
+            height: 28px;
+            background: #f0f0f0;
+            border: 1px solid #f0f0f0;
+            border-radius: 15px;
+            position: relative;
+            z-index: 310;
+        }
+
+        .search-bar .search-bar-form:after {
+            content: "";
+            display: block;
+            width: 20px;
+            height: 20px;
+            background: url(img/icon/icon-common.svg) no-repeat;
+            background-position: -139px 0;
+            position: absolute;
+            top: 4px;
+            right: 12px;
+        }
+
+        .search-bar-form:hover {
+            border-color: #c9c9c9;
+        }
+
+        .search-bar .search-bar-form .text {
+            border: 0;
+            color: #3a3a3a;
+            width: 205px;
+            text-indent: 15px;
+            height: 30px;
+            line-height: 30px;
+            background: transparent;
+            float: left;
+        }
+
+        .search-bar .search-bar-key {
+            position: absolute;
+            max-width: 161px;
+            right: 33px;
+            bottom: 6px;
+            z-index: 311;
+            white-space: nowrap;
+            overflow: hidden;
+        }
+
+        .search-bar .search-bar-key a {
+            color: #999;
+            font-size: 12px;
+            margin-right: 8px;
+        }
+
+        .search-bar .search-bar-key a:hover {
+            color: #333;
+        }
+
+        .search-bar-history {
+            background: #fff;
+            width: 240px;
+            border-radius: 8px;
+            position: absolute;
+            top: 40px;
+            line-height: 26px;
+            z-index: 306;
+            box-shadow: 0 2px 36px 0 rgba(0, 0, 0, 0.07);
+        }
+
+        .search-bar-history .con {
+            border-top: 1px solid #f2f2f5;
+        }
+
+        .search-bar-history label {
+            font-size: 13px;
+            color: #888;
+        }
+
+        .search-bar-history p {
+            text-indent: 15px;
+            height: 30px;
+            line-height: 30px;
+        }
+
+        .search-bar-history ul {
+            text-indent: 15px;
+        }
+
+        .search-bar-history ul li a {
+            display: block;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+            overflow: hidden;
+            color: #333;
+            height: 30px;
+            line-height: 30px;
+        }
+
+        .search-bar-history ul li:hover {
+            background: #f0f0f0;
+        }
+
+        /*捷径栏 end*/
+
+        /*导航 start*/
+        .naver-main .layout {
+            position: relative;
+            z-index: 410;
+        }
+
+        .category {
+            position: absolute;
+            left: 0;
+            top: 18px;
+            width: 200px;
+        }
+
+        .category .category-list {
+            position: relative;
+            height: 440px;
+            box-shadow: 0 0 28px rgba(0, 0, 0, 0.08);
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 10px;
+            display: table;
+            cursor: pointer;
+        }
+
+        .category .category-item {
+            /*display: table-row;!*margin和padding会失效*!*/
+            font-size: 16px;
+            color: #848484;
+
+        }
+
+        .category .category-info {
+            padding: 10px 0 10px 16px;
+            width: 184px;
+            position: relative;
+            cursor: pointer;
+        }
+
+        .category .category-info:hover {
+
+        }
+
+        .category .category-info a {
+            color: #3a3a3a;
+        }
+
+        /*导航 end*/
+
+        /*轮播图 start*/
+        .hot-board {
+            min-width: 1200px;
+            height: 550px;
+            position: relative;
+        }
+
+        .slider {
+            width: 1200px;
+            min-width: 1200px;
+            height: 550px;
+            margin: 0 auto;
+            position: relative;
+            left: -360px;
+        }
+
+        .slider li {
+            position: absolute;
+            display: none;
+        }
+
+        .slider li:first-child {
+            display: block;
+        }
+
+        .arrow {
+            display: block;
+        }
+
+        .arrow-left,
+        .arrow-right {
+            font-family: "SimSun", "宋体";
+            width: 80px;
+            height: 80px;
+            background: url(img/icon/icon01.svg) no-repeat;
+            position: absolute;
+            top: 50%;
+            margin-top: -30px;
+            margin-left: 200px;
+            cursor: pointer;
+            z-index: 3;
+        }
+
+        .arrow-left {
+            left: 370px;
+            background-position: 0 -72px;
+        }
+
+        .arrow-left:hover {
+            background-position: -240px -72px;
+        }
+
+        .arrow-right {
+            right: -350px;
+            background-position: -80px -72px;
+        }
+
+        .arrow-right:hover {
+            background-position: -160px -72px;
+        }
+
+        .hot-board .mask {
+            text-align: center;
+            width: 100%;
+            min-width: 1200px;
+            height: 72px;
+            display: block;
+            position: absolute;
+            bottom: 0;
+            z-index: 1;
+        }
+
+        .hot-board .mask span {
+            width: 100%;
+            min-width: 1200px;
+            height: 72px;
+            display: block;
+            background: url(img/RollPic/bg-slide.png) no-repeat;
+            background-size: 100% 72px;
+        }
+
+        /*轮播图 end*/
+        /*好货 start*/
+        .index-channel-floor .home-channel-floor .h {
+            margin: 27px 0 12px;
+        }
+        .index-channel-floor .h .channel-title {
+            font-size: 26px;
+            color: #333;
+        }
+        .index-channel-floor .h .channel-nav {
+            margin-left: 28px;
+            max-width: 950px;
+            height: 32px;
+            overflow: hidden;
+        }
+        .index-channel-floor .h .channel-nav a {
+            font-size: 14px;
+            color: #999;
+            margin-left: 0;
+            margin-right: 24px;
+            line-height: 32px;
+        }
+        .home-channel-floor .channel-nav li {
+            float: left;
+            font-size: 12px;
+        }
+        .index-channel-floor .channel-more {
+            height: 32px;
+        }
+        .index-channel-floor .h .channel-more a {
+            font-size: 14px;
+            color: #333;
+            padding-right: 10px;
+        }
+        .index-channel-floor .h .channel-nav a:hover {
+            color: #cb242b;
+        }
+        .index-channel-floor .channel-more a:after {
+            content: "";
+            display: inline-block;
+            width: 18px;
+            height: 14px;
+            background: url(img/icon/icon03.svg) no-repeat;
+            background-position: -48px 0;
+            position: relative;
+            top: 2px;
+        }
+        .index-channel-floor .goods-list .grid-items {
+            height: 290px;
+            width: 230px;
+            background: #fff;
+            border-radius: 10px;
+            margin-left: 12px;
+            margin-bottom: 12px;
+            margin-top: 20px;
+            float: left;
+            position: relative;
+        }
+        .index-channel-floor .goods-list .grid-items:first-child{
+            margin-left: -50px;
+        }
+        .index-channel-floor .grid-items .thumb {
+            display: inline-block;
+            height: 100%;
+            width: 100%;
+            text-align: center;
+        }
+        .index-channel-floor .grid-items img {
+            width: 230px;
+            height: 290px;
+            border-radius: 10px;
+        }
+        .index-channel-floor .b .grid-items .grid-title {
+            width: 210px;
+            display: block;
+            margin: 0 auto;
+            padding: 0;
+            margin-top: 12px;
+            height: 21px;
+            font-size: 14px;
+            font-weight: 400;
+            color: #3a3a3a;
+            line-height: 21px;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            vertical-align: bottom;
+        }
+        .index-channel-floor .goods-list .grid-items .grid-img {
+            width: 150px;
+            height: 150px;
+            margin: 35px auto 0;
+        }
+        .index-channel-floor .b .grid-items .grid-img img {
+            width: 150px;
+            height: 150px;
+        }
+        .index-channel-floor .b .grid-items .grid-desc {
+            color: #777;
+            line-height: 18px;
+            padding: 0 10px;
+            margin: 2px 20px 7px;
+        }
+        .index-channel-floor .b .grid-items .grid-price {
+            color: #d0021b;
+            line-height: 21px;
+            margin-bottom: 0;
+            font-size: 14px;
+            font-weight: 400;
+            margin: 0 20px 20px;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+        .index-channel-floor .goods-list .grid-items .grid-tips {
+            width: 100%;
+            height: 48px;
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 49px;
+            z-index: 2;
+        }
+        /*好货 end*/
+    </style>
+</head>
+<body style="min-width: 1200px; overflow-x: auto">
+<!-- Top ad start -->
+<div class="top-banner">
+    <div class="top-banner-img">
+        <a href="#"><img src="img/ad-TopBanner.jpg" alt=""></a>
+    </div>
+    <div class="button-top-banner-close">关闭</div>
+</div>
+<!-- Top ad end -->
+
+<div class="shortcut font">
+    <div class="layout">
+        <div class="s-sub fl">
+            <ul>
+                <li><a href="#">首页</a></li>
+                <li><a href="#">首页</a></li>
+                <li><a href="#">首页</a></li>
+                <li><a href="#">首页</a></li>
+                <li><a href="#">首页</a></li>
+                <li><a href="#">首页</a></li>
+                <li><a href="#">首页</a></li>
+            </ul>
+        </div>
+        <div class="s-main fr">
+            <ul>
+                <li><a href="#">登录</a></li>
+                <li><a href="#">登录</a></li>
+                <li><a href="#">登录</a></li>
+                <li><a href="#">登录</a></li>
+                <li><a href="#">登录</a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<!--头部 start-->
+<div class="header">
+    <div class="layout">
+        <div class="left fl">
+            <div class="logo fl">
+                <a href="#"><img src="img/SXppnESYv4K11DBxDFc2.png" alt=""></a>
+            </div>
+            <div class="naver fl">
+                <ul>
+                    <li class="img"><img src="img/GrguiqzHENWVYHYWyHBM.png" alt=""></li>
+                    <li class="img"><img src="img/AHwTUFRpDSQyuIZ7tLJz.png" alt=""></li>
+                    <li class="img">
+                        <div class="naver-list" style="background-color: mediumorchid;">苹果专区</div>
+                    </li>
+                    <li class="img">
+                        <div class="naver-list" style="background-color: #ffdb69;">小米专区</div>
+                    </li>
+                    <li class="img">
+                        <div class="naver-list" style="background-color: #a1ff07;">OPPO专区</div>
+                    </li>
+                    <li class="img">
+                        <div class="naver-list" style="background-color: #aa3216;">VIVO专区</div>
+                    </li>
+
+                </ul>
+            </div>
+        </div>
+        <div class="right fr">
+            <div class="search-bar">
+                <div class="search-bar-form">
+                    <form action="" method="get" onsubmit="">
+                        <input type="text" id="search-kw" class="text" maxlength="200" autocomplete="off">
+                        <input type="button" name="" id="">
+
+                    </form>
+                </div>
+                <div class="search-bar-key" id="search-bar-key">
+                    <a href="#">Mate 10</a>
+                    <a href="#">iPhone 12</a>
+                </div>
+                <div class="search-bar-history">
+                    <div id="search-key" class="con" style="display: none;">
+                        <p>
+                            <label>热门搜索</label>
+                        </p>
+                        <ul id="search-key-list">
+                            <li><a href="javascript:void(0);" target="_blank" onclick="">Mate 30E pro</a></li>
+                            <li><a href="javascript:void(0);" target="_blank" onclick="">nova8 Pro</a></li>
+                            <li><a href="javascript:void(0);" target="_blank" onclick="">WATHCH FIT</a></li>
+                            <li><a href="javascript:void(0);" target="_blank" onclick="">MateBook D</a></li>
+                            <li><a href="javascript:void(0);" target="_blank" onclick="">平板</a></li>
+                            <li><a href="javascript:void(0);" target="_blank" onclick="">华为智慧屏S</a></li>
+                            <li><a href="javascript:void(0);" target="_blank" onclick="">耳机</a></li>
+                            <li><a href="javascript:void(0);" target="_blank" onclick="">P40</a></li>
+                            <li><a href="javascript:void(0);" target="_blank" onclick="">手表</a></li>
+                            <li><a href="javascript:void(0);" target="_blank" onclick="">音箱</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    //input获得焦点，#search-bar-key消失
+    $('#search-kw').focus(function () {
+        $('#search-bar-key').css("display", "none");
+        $("#search-key").css("display", "block");
+    });
+    //input失去焦点，#search-bar-key出现
+    $('#search-kw').blur(function () {
+        $('#search-bar-key').css("display", "block");
+        $("#search-key").css("display", "none");
+    })
+</script>
+<!--头部 end-->
+
+<!--导航 start-->
+<div class="naver-main">
+    <div class="layout">
+        <!--TODO: 没做js-->
+        <!--    分类 start-->
+        <div class="category">
+            <ol class="category-list">
+                <li class="category-item">
+                    <div class="category-info">
+                        <a href="#">
+                            <span>手机</span>
+                            <i class=""></i>
+                        </a>
+                    </div>
+                </li>
+                <li class="category-item">
+                    <div class="category-info">
+                        <a href="#">
+                            <span>平板</span>
+                            <i class=""></i>
+                        </a>
+                    </div>
+                </li>
+                <li class="category-item">
+                    <div class="category-info">
+                        <a href="#">
+                            <span>智能穿戴</span>
+                            <i class=""></i>
+                        </a>
+                    </div>
+                </li>
+                <li class="category-item">
+                    <div class="category-info">
+                        <a href="#">
+                            <span>智慧屏</span>
+                            <i class=""></i>
+                        </a>
+                    </div>
+                </li>
+                <li class="category-item">
+                    <div class="category-info">
+                        <a href="#">
+                            <span>智能家居</span>
+                            <i class=""></i>
+                        </a>
+                    </div>
+                </li>
+                <li class="category-item">
+                    <div class="category-info">
+                        <a href="#">
+                            <span>生态产品</span>
+                            <i class=""></i>
+                        </a>
+                    </div>
+                </li>
+                <li class="category-item">
+                    <div class="category-info">
+                        <a href="#">
+                            <span>电视</span>
+                            <i class=""></i>
+                        </a>
+                    </div>
+                </li>
+                <li class="category-item">
+                    <div class="category-info">
+                        <a href="#">
+                            <span>平板</span>
+                            <i class=""></i>
+                        </a>
+                    </div>
+                </li>
+                <li class="category-item">
+                    <div class="category-info">
+                        <a href="#">
+                            <span>增值服务</span>
+                            <i class=""></i>
+                        </a>
+                    </div>
+                </li>
+                <li class="category-item">
+                    <div class="category-info">
+                        <a href="#">
+                            <span>其他</span>
+                            <i class=""></i>
+                        </a>
+                    </div>
+                </li>
+            </ol>
+        </div>
+        <!--    分类 end-->
+    </div>
+</div>
+
+<!--导航 end-->
+
+<!--轮播图 start-->
+<div class="hot-board">
+    <div class="slider">
+        <ul>
+            <li><a href="#"><img src="img/RollPic/39470921590612907493.jpg" alt=""></a></li>
+            <li><a href="#"><img src="img/RollPic/17714690490619641771.jpg" alt=""></a></li>
+            <li><a href="#"><img src="img/RollPic/38871921590612917883.jpg" alt=""></a></li>
+            <li><a href="#"><img src="img/RollPic/31592113490611129513.jpg" alt=""></a></li>
+            <li><a href="#"><img src="img/RollPic/61819585590618591816.jpg" alt=""></a></li>
+            <li><a href="#"><img src="img/RollPic/02139013490611093120.jpg" alt=""></a></li>
+
+        </ul>
+        <!--箭头-->
+        <div class="arrow">
+            <span class="arrow-left"></span>
+            <span class="arrow-right"></span>
+        </div>
+    </div>
+    <div class="mask"><span></span></div>
+</div>
+<!--TODO：右下角六个点和自动轮播-->
+<script>
+    $(function () {
+
+        var count = 0;
+
+        $(".arrow-right").click(function () {
+            count++;
+
+
+            if (count == $(".slider li").length) {
+                count = 0;
+            }
+            console.log(count);
+            //让count渐渐的显示，其他兄弟渐渐的隐藏
+            $(".slider li").eq(count).fadeIn().siblings("li").fadeOut();
+        });
+
+        $(".arrow-left").click(function () {
+            count--;
+
+            if (count == -1) {
+                count = $(".slider li").length - 1;
+            }
+            console.log(count);
+            //让count渐渐的显示，其他兄弟渐渐的隐藏
+            $(".slider li").eq(count).fadeIn().siblings("li").fadeOut();
+        })
+
+    });
+</script>
+<!--轮播图 end-->
+
+<!--好货 start-->
+<div class="index-channel-floor">
+    <div class="layout">
+        <div class="home-channel-floor">
+            <div class="h">
+                <h2 class="channel-title fl">手机</h2>
+                <ul class="channel-nav fl">
+                    <li><a href="#" target="_blank" onclick="">HUAWEI
+                        Mate系列</a></li>
+                    <li><a href="#" target="_blank" onclick="">HUAWEI
+                        P系列</a></li>
+                    <li><a href="#" target="_blank" onclick="">HUAWEI
+                        nova系列</a></li>
+                    <li><a href="#" target="_blank" onclick="">华为畅享系列</a>
+                    </li>
+                    <li><a href="#" target="_blank" onclick=")">荣耀
+                        V系列</a></li>
+                    <li><a href="#" target="_blank" onclick="">荣耀
+                        HONOR系列</a></li>
+                    <li><a href="#" target="_blank" onclick="">荣耀
+                        X系列</a></li>
+                    <li><a href="#" target="_blank" onclick="">荣耀
+                        Play系列</a></li>
+                    <li><a href="#" target="_blank" onclick="">HUAWEI
+                        麦芒系列</a></li>
+                    <li><a href="#" target="_blank" onclick="">移动4G+专区</a>
+                    </li>
+                </ul>
+                <div class="channel-more fr">
+                    <a href="#" target="_blank" onclick="">查看更多</a>
+                </div>
+            </div>
+
+            <div class="b">
+                <div class="goods-list">
+                    <ul class="grid-list clearfix">
+                        <li class="grid-items ">
+                            <a class="thumb" href="#" target="_blank" onclick="">
+                                <img alt="" src="img/68480878160617808486.png">
+                            </a>
+                        </li>
+                        <li class="grid-items">
+                            <a class="thumb" href="#" target="_blank" onclick="">
+                                <div class="grid-info">
+                                    <p class="grid-img">
+                                        <img alt="华为畅享20 5G 6GB+128GB 全网通版（亮黑色）"
+                                             src="img/428_428_3046A949C32ADBE6AB532EBB77ECB0F78951FCB36B693B6Bmp.png">
+                                    </p>
+                                </div>
+                                <div class="grid-title">华为畅享20 5G</div>
+                                <p class="grid-desc">购机赠耳机&nbsp;</p>
+                                <p class="grid-price">¥1899</p>
+                            </a>
+                        </li>
+                        <li class="grid-items">
+                            <a class="thumb" href="#" target="_blank" onclick="">
+                                <div class="grid-info">
+                                    <p class="grid-img">
+                                        <img alt="HUAWEI Mate 30 RS 保时捷设计 5G全网通 12GB+512GB（玄黑）"
+                                             src="img/428_428_484D42DB83550E7CF59813E6BE3E2A9A4CF07CF0E75E32A3mp.png">
+                                    </p>
+                                </div>
+                                <div class="grid-title">HUAWEI Mate 30 RS 保时捷设计</div>
+                                <p class="grid-desc">致敬时代&nbsp;</p>
+                                <p class="grid-price">¥12999</p>
+                            </a>
+                        </li>
+                        <li class="grid-items">
+                            <a class="thumb" href="#" target="_blank" onclick="">
+                                <div class="grid-info">
+                                    <p class="grid-img">
+                                        <img alt="HUAWEI nova 7 Pro 5G 前置3200万追焦双摄 50倍潜望式变焦四摄  麒麟985 5G SoC 8GB+128GB 全网通版（亮黑色）"
+                                             src="img/428_428_58EAB4EFAF0C0396CD1E1B8CDD13FA7E0B5EFADD46080300mp.png">
+                                    </p>
+                                </div>
+                                <div class="grid-title">HUAWEI nova 7 Pro</div>
+                                <p class="grid-desc">限时优惠100元&nbsp;</p>
+                                <p class="grid-price">¥3699</p>
+                                <p class="grid-tips">
+                                    <em class="thumb"><span class="color01"
+                                                            style="background-color:#FF6A6E">热销爆款</span></em>
+                                </p>
+                            </a>
+                        </li>
+                        <li class="grid-items">
+                            <a class="thumb" href="#" target="_blank" onclick="">
+                                <div class="grid-info">
+                                    <p class="grid-img">
+                                        <img alt="华为畅享20 Pro 6GB+128GB 全网通版（星河银）"
+                                             src="img/428_428_C089F3BE3BD266BAC2B777E1190F59241E0CE65223CA694Bmp.png">
+                                    </p>
+                                </div>
+                                <div class="grid-title">华为畅享20 Pro</div>
+                                <p class="grid-desc">领券立减50元&nbsp;</p>
+                                <p class="grid-price">¥1999</p>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="index-channel-floor">
+    <div class="layout">
+        <div class="home-channel-floor">
+            <div class="h">
+                <h2 class="channel-title fl">手机</h2>
+                <ul class="channel-nav fl">
+                    <li><a href="#" target="_blank" onclick="">HUAWEI
+                        Mate系列</a></li>
+                    <li><a href="#" target="_blank" onclick="">HUAWEI
+                        P系列</a></li>
+                    <li><a href="#" target="_blank" onclick="">HUAWEI
+                        nova系列</a></li>
+                    <li><a href="#" target="_blank" onclick="">华为畅享系列</a>
+                    </li>
+                    <li><a href="#" target="_blank" onclick=")">荣耀
+                        V系列</a></li>
+                    <li><a href="#" target="_blank" onclick="">荣耀
+                        HONOR系列</a></li>
+                    <li><a href="#" target="_blank" onclick="">荣耀
+                        X系列</a></li>
+                    <li><a href="#" target="_blank" onclick="">荣耀
+                        Play系列</a></li>
+                    <li><a href="#" target="_blank" onclick="">HUAWEI
+                        麦芒系列</a></li>
+                    <li><a href="#" target="_blank" onclick="">移动4G+专区</a>
+                    </li>
+                </ul>
+                <div class="channel-more fr">
+                    <a href="#" target="_blank" onclick="">查看更多</a>
+                </div>
+            </div>
+
+            <div class="b">
+                <div class="goods-list">
+                    <ul class="grid-list clearfix">
+                        <li class="grid-items ">
+                            <a class="thumb" href="#" target="_blank" onclick="">
+                                <img alt="" src="img/68480878160617808486.png">
+                            </a>
+                        </li>
+                        <li class="grid-items">
+                            <a class="thumb" href="#" target="_blank" onclick="">
+                                <div class="grid-info">
+                                    <p class="grid-img">
+                                        <img alt="华为畅享20 5G 6GB+128GB 全网通版（亮黑色）"
+                                             src="img/428_428_3046A949C32ADBE6AB532EBB77ECB0F78951FCB36B693B6Bmp.png">
+                                    </p>
+                                </div>
+                                <div class="grid-title">华为畅享20 5G</div>
+                                <p class="grid-desc">购机赠耳机&nbsp;</p>
+                                <p class="grid-price">¥1899</p>
+                            </a>
+                        </li>
+                        <li class="grid-items">
+                            <a class="thumb" href="#" target="_blank" onclick="">
+                                <div class="grid-info">
+                                    <p class="grid-img">
+                                        <img alt="HUAWEI Mate 30 RS 保时捷设计 5G全网通 12GB+512GB（玄黑）"
+                                             src="img/428_428_484D42DB83550E7CF59813E6BE3E2A9A4CF07CF0E75E32A3mp.png">
+                                    </p>
+                                </div>
+                                <div class="grid-title">HUAWEI Mate 30 RS 保时捷设计</div>
+                                <p class="grid-desc">致敬时代&nbsp;</p>
+                                <p class="grid-price">¥12999</p>
+                            </a>
+                        </li>
+                        <li class="grid-items">
+                            <a class="thumb" href="#" target="_blank" onclick="">
+                                <div class="grid-info">
+                                    <p class="grid-img">
+                                        <img alt="HUAWEI nova 7 Pro 5G 前置3200万追焦双摄 50倍潜望式变焦四摄  麒麟985 5G SoC 8GB+128GB 全网通版（亮黑色）"
+                                             src="img/428_428_58EAB4EFAF0C0396CD1E1B8CDD13FA7E0B5EFADD46080300mp.png">
+                                    </p>
+                                </div>
+                                <div class="grid-title">HUAWEI nova 7 Pro</div>
+                                <p class="grid-desc">限时优惠100元&nbsp;</p>
+                                <p class="grid-price">¥3699</p>
+                                <p class="grid-tips">
+                                    <em class="thumb"><span class="color01"
+                                                            style="background-color:#FF6A6E">热销爆款</span></em>
+                                </p>
+                            </a>
+                        </li>
+                        <li class="grid-items">
+                            <a class="thumb" href="#" target="_blank" onclick="">
+                                <div class="grid-info">
+                                    <p class="grid-img">
+                                        <img alt="华为畅享20 Pro 6GB+128GB 全网通版（星河银）"
+                                             src="img/428_428_C089F3BE3BD266BAC2B777E1190F59241E0CE65223CA694Bmp.png">
+                                    </p>
+                                </div>
+                                <div class="grid-title">华为畅享20 Pro</div>
+                                <p class="grid-desc">领券立减50元&nbsp;</p>
+                                <p class="grid-price">¥1999</p>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="index-channel-floor">
+    <div class="layout">
+        <div class="home-channel-floor">
+            <div class="h">
+                <h2 class="channel-title fl">手机</h2>
+                <ul class="channel-nav fl">
+                    <li><a href="#" target="_blank" onclick="">HUAWEI
+                        Mate系列</a></li>
+                    <li><a href="#" target="_blank" onclick="">HUAWEI
+                        P系列</a></li>
+                    <li><a href="#" target="_blank" onclick="">HUAWEI
+                        nova系列</a></li>
+                    <li><a href="#" target="_blank" onclick="">华为畅享系列</a>
+                    </li>
+                    <li><a href="#" target="_blank" onclick=")">荣耀
+                        V系列</a></li>
+                    <li><a href="#" target="_blank" onclick="">荣耀
+                        HONOR系列</a></li>
+                    <li><a href="#" target="_blank" onclick="">荣耀
+                        X系列</a></li>
+                    <li><a href="#" target="_blank" onclick="">荣耀
+                        Play系列</a></li>
+                    <li><a href="#" target="_blank" onclick="">HUAWEI
+                        麦芒系列</a></li>
+                    <li><a href="#" target="_blank" onclick="">移动4G+专区</a>
+                    </li>
+                </ul>
+                <div class="channel-more fr">
+                    <a href="#" target="_blank" onclick="">查看更多</a>
+                </div>
+            </div>
+
+            <div class="b">
+                <div class="goods-list">
+                    <ul class="grid-list clearfix">
+                        <li class="grid-items ">
+                            <a class="thumb" href="#" target="_blank" onclick="">
+                                <img alt="" src="img/68480878160617808486.png">
+                            </a>
+                        </li>
+                        <li class="grid-items">
+                            <a class="thumb" href="#" target="_blank" onclick="">
+                                <div class="grid-info">
+                                    <p class="grid-img">
+                                        <img alt="华为畅享20 5G 6GB+128GB 全网通版（亮黑色）"
+                                             src="img/428_428_3046A949C32ADBE6AB532EBB77ECB0F78951FCB36B693B6Bmp.png">
+                                    </p>
+                                </div>
+                                <div class="grid-title">华为畅享20 5G</div>
+                                <p class="grid-desc">购机赠耳机&nbsp;</p>
+                                <p class="grid-price">¥1899</p>
+                            </a>
+                        </li>
+                        <li class="grid-items">
+                            <a class="thumb" href="#" target="_blank" onclick="">
+                                <div class="grid-info">
+                                    <p class="grid-img">
+                                        <img alt="HUAWEI Mate 30 RS 保时捷设计 5G全网通 12GB+512GB（玄黑）"
+                                             src="img/428_428_484D42DB83550E7CF59813E6BE3E2A9A4CF07CF0E75E32A3mp.png">
+                                    </p>
+                                </div>
+                                <div class="grid-title">HUAWEI Mate 30 RS 保时捷设计</div>
+                                <p class="grid-desc">致敬时代&nbsp;</p>
+                                <p class="grid-price">¥12999</p>
+                            </a>
+                        </li>
+                        <li class="grid-items">
+                            <a class="thumb" href="#" target="_blank" onclick="">
+                                <div class="grid-info">
+                                    <p class="grid-img">
+                                        <img alt="HUAWEI nova 7 Pro 5G 前置3200万追焦双摄 50倍潜望式变焦四摄  麒麟985 5G SoC 8GB+128GB 全网通版（亮黑色）"
+                                             src="img/428_428_58EAB4EFAF0C0396CD1E1B8CDD13FA7E0B5EFADD46080300mp.png">
+                                    </p>
+                                </div>
+                                <div class="grid-title">HUAWEI nova 7 Pro</div>
+                                <p class="grid-desc">限时优惠100元&nbsp;</p>
+                                <p class="grid-price">¥3699</p>
+                                <p class="grid-tips">
+                                    <em class="thumb"><span class="color01"
+                                                            style="background-color:#FF6A6E">热销爆款</span></em>
+                                </p>
+                            </a>
+                        </li>
+                        <li class="grid-items">
+                            <a class="thumb" href="#" target="_blank" onclick="">
+                                <div class="grid-info">
+                                    <p class="grid-img">
+                                        <img alt="华为畅享20 Pro 6GB+128GB 全网通版（星河银）"
+                                             src="img/428_428_C089F3BE3BD266BAC2B777E1190F59241E0CE65223CA694Bmp.png">
+                                    </p>
+                                </div>
+                                <div class="grid-title">华为畅享20 Pro</div>
+                                <p class="grid-desc">领券立减50元&nbsp;</p>
+                                <p class="grid-price">¥1999</p>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--好货 end-->
+</body>
+
+
+</html>

@@ -1,0 +1,36 @@
+html, body, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, code, form, fieldset, legend, input, textarea, p, blockquote, th, td, hr, button, article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
+    margin: 0;
+    padding: 0;
+}
+
+body, button, input, select, textarea, .font {
+    font: 12px/1.5 "Helvetica Neue", Helvetica, Arial, "Microsoft Yahei", "Hiragino Sans GB", "Heiti SC", "WenQuanYi Micro Hei", sans-serif;
+}
+a {
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: none
+}
+
+:focus {
+    outline: 0
+}
+
+ol, ul {
+    list-style: none;
+    cursor: pointer
+}
+
+.fl {
+    float: left;
+}
+
+.fr {
+    float: right;
+}
+
+img { /*图片基线对齐会产生间隙*/
+    vertical-align: middle;
+}
