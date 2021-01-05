@@ -4,17 +4,6 @@ $(function () {
         $('.top-banner').slideUp("fast");
     })
 });
-/* 搜索栏*/
-//input获得焦点，#search-bar-key消失
-$('#search-kw').focus(function () {
-    $('#search-bar-key').css("display", "none");
-    $("#search-key").css("display", "block");
-});
-//input失去焦点，#search-bar-key出现
-$('#search-kw').blur(function () {
-    $('#search-bar-key').css("display", "block");
-    $("#search-key").css("display", "none");
-});
 /* 轮播图*/
 $(function () {
 
@@ -66,11 +55,11 @@ $(function () {
         $(buttonSpan[count]).addClass("current").siblings("span").removeClass("current");
     });
     //小圆点点击事件
-    for (let i=0;i<buttonSpan.length;i++){
-        buttonSpan[i].onclick=function () {
+    for (let i = 0; i < buttonSpan.length; i++) {
+        buttonSpan[i].onclick = function () {
             //让第i个渐渐的显示，其他兄弟渐渐的隐藏
             $(".slider li").eq(i).fadeIn().siblings("li").fadeOut();
-            count=i;
+            count = i;
             $(buttonSpan[count]).addClass("current").siblings("span").removeClass("current");
         }
     }

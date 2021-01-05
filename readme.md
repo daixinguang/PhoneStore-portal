@@ -1,3 +1,10 @@
+# 2021-01-05
+> 实现
+1. 快捷栏shortcut在移动端（iPhone X）适配有点问题
+2. 好货index-channel-floor和shortcut问题一样
+3. 轮播图优化
+4. top-ad 广告关闭js
+
 # 2021-01-04
 > 实现:
 1. 轮播图js

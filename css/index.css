@@ -1,23 +1,31 @@
 /*top-ad start*/
 .top-banner {
-    width: 1200px;
+    min-width: 1200px;
+    height: 90px;
     margin: 0 auto;
     position: relative;
 }
 
 .top-banner-img {
-    width: 1200px;
-    position: relative;
-    left: -360px;
-    /*vertical-align: top;*/
+    width: 100%;
 }
+.top-banner-img a {
+    display: block;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    background-image: url(../img/ad-TopBanner.jpg);
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
 
 .button-top-banner-close {
     width: 24px;
     height: 24px;
     position: absolute;
-    right: 0px;
-    top: 10px;
+    right: 15px;
+    top: 15px;
     font-size: 0;
     background: url(../img/icon/icon01.svg) no-repeat;
     background-position: -323px -84px;
@@ -75,64 +83,36 @@
     height: 36px;
 }
 
-.naver li.img {
-    float: left;
-    margin: 7px 24px 0 0;
-}
-
-.naver li.img img {
-    display: block;
-    height: 24px;
-}
-
-.naver li.img .naver-list {
-    /*width: 74px;*/
-    height: 24px;
-    padding: 0 5px;
-    font-size: 16px;
-    text-align: center;
-    color: #fff;
-    border-radius: 15px;
-}
-
 .search-bar {
-    margin-top: 5px;
     background: #fff;
     border-radius: 16px 16px 0 0;
     position: relative;
+    margin-left: 80px;
 }
 
 .search-bar .search-bar-form {
     line-height: 1;
-    width: 238px;
-    height: 28px;
+    width: 584px;
+    height: 36px;
     background: #f0f0f0;
-    border: 1px solid #f0f0f0;
-    border-radius: 15px;
+    border: 2px solid #050505;
     position: relative;
     z-index: 310;
 }
-
-.search-bar .search-bar-form:after {
-    content: "";
-    display: block;
-    width: 20px;
-    height: 20px;
-    background: url(../img/icon/icon-common.svg) no-repeat;
-    background-position: -139px 0;
-    position: absolute;
-    top: 4px;
-    right: 12px;
-}
-
-.search-bar-form:hover {
-    border-color: #c9c9c9;
+.search-bar .search-bar-form button{
+    width: 80px;
+    height: 36px;
+    color: #fff;
+    font-size: 16px;
+    cursor: pointer;
+    background-color: #050505;
+    position: relative;
 }
 
 .search-bar .search-bar-form .text {
     border: 0;
     color: #3a3a3a;
-    width: 205px;
+    width: 504px;
     text-indent: 15px;
     height: 30px;
     line-height: 30px;
@@ -143,8 +123,8 @@
 .search-bar .search-bar-key {
     position: absolute;
     max-width: 161px;
-    right: 33px;
-    bottom: 6px;
+    right: 85px;
+    bottom: 10px;
     z-index: 311;
     white-space: nowrap;
     overflow: hidden;
@@ -162,12 +142,13 @@
 
 .search-bar-history {
     background: #fff;
-    width: 240px;
-    border-radius: 8px;
+    width: 584px;
     position: absolute;
     top: 40px;
     line-height: 26px;
     z-index: 306;
+    border: 2px solid #ccc;
+    border-top: 0 none;
     box-shadow: 0 2px 36px 0 rgba(0, 0, 0, 0.07);
 }
 
@@ -202,6 +183,36 @@
 
 .search-bar-history ul li:hover {
     background: #f0f0f0;
+}
+.shopping-cart{
+    width: 91px;
+    height: 34px;
+    color: #f30213;
+    border: 1px solid #DFDFDF;
+    padding: 0 28px 0 19px;
+    background: #F9F9F9;
+    line-height: 34px;
+    position: relative;
+}
+.shopping-cart i{
+    width: 14px;
+    height: 14px;
+}
+.shopping-cart .shoping-count {
+    position: absolute;
+    top: 7px;
+    left: 105px;
+    display: inline-block;
+
+    padding: 1px;
+    font-size: 12px;
+    line-height: 14px;
+    letter-spacing: -1px;
+    color: #fff;
+    background-color: #da1026;
+    border-radius: 7px;
+    min-width: 14px;
+    text-align: center;
 }
 
 /*捷径栏 end*/
@@ -264,12 +275,18 @@
     width: 1200px;
     min-width: 1200px;
     height: 550px;
-    margin: 0 auto;
+    /* margin: 0 auto;
     position: relative;
-    left: -360px;
+    left: -360px; */
 }
 
+.slider ul{
+    width: 100%;
+    height: 100%;
+}
 .slider li {
+    width: 100%;
+    height: 100%;
     position: absolute;
     display: none;
 }
@@ -277,6 +294,34 @@
 .slider li:first-child {
     display: block;
 }
+.slider li a {
+    display: block;
+    width: 100%;
+    height: 100%;
+    background-image: url(../img/RollPic/39470921590612907493.jpg);
+    background-repeat: no-repeat;
+    background-position: center;
+}
+.slider li:nth-child(2) a{
+    background-image: url(../img/RollPic/17714690490619641771.jpg);
+}
+.slider li:nth-child(3) a{
+    background-image: url(../img/RollPic/38871921590612917883.jpg);
+}
+.slider li:nth-child(4) a{
+    background-image: url(../img/RollPic/31592113490611129513.jpg);
+}
+.slider li:nth-child(5) a{
+    background-image: url(../img/RollPic/61819585590618591816.jpg);
+}
+.slider li:nth-child(6) a{
+    background-image: url(../img/RollPic/02139013490611093120.jpg);
+}
+.slider li a img{
+    width: 100%;
+    height: 100%;
+}
+
 
 .arrow {
     display: block;
@@ -297,8 +342,9 @@
 }
 
 .arrow-left {
-    left: 370px;
+    left: 0;
     background-position: 0 -72px;
+    right: auto;
 }
 
 .arrow-left:hover {
@@ -306,8 +352,9 @@
 }
 
 .arrow-right {
-    right: -350px;
+    right: 150px;
     background-position: -80px -72px;
+    left: auto;
 }
 
 .arrow-right:hover {
@@ -334,13 +381,9 @@
     background-size: 100% 72px;
 }
 .ec-slider-nav-1 {
-    width: 300px;
-    height: 10px;
-    margin-left: -150px;
     position: absolute;
-    right: -350px;
-bottom: 80px;
-    text-align: right;
+    right: 40%;
+    bottom: 85px;
 }
 .ec-slider-nav-1 span {
     width: 10px;

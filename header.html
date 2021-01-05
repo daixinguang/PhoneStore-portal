@@ -1,0 +1,88 @@
+<div class="shortcut font">
+    <div class="layout">
+        <div class="s-sub fl">
+            <ul>
+                <li><a href="#">首页</a></li>
+                <li><a href="#">首页</a></li>
+                <li><a href="#">首页</a></li>
+                <li><a href="#">首页</a></li>
+                <li><a href="#">首页</a></li>
+                <li><a href="#">首页</a></li>
+                <li><a href="#">首页</a></li>
+            </ul>
+        </div>
+        <div class="s-main fr">
+            <ul>
+                <li><a href="#">登录</a></li>
+                <li><a href="#">登录</a></li>
+                <li><a href="#">登录</a></li>
+                <li><a href="#">登录</a></li>
+                <li><a href="#">登录</a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<!--头部 start-->
+<div class="header">
+    <div class="layout">
+        <div class="left fl">
+            <div class="logo fl">
+                <a href="#"><img src="img/SXppnESYv4K11DBxDFc2.png" alt=""></a>
+            </div>
+            <div class="search-bar fl">
+                <div class="search-bar-form">
+                    <input type="text" id="search-kw" class="text" maxlength="200" autocomplete="off">
+                    <button>搜索</button>
+                </div>
+                <div class="search-bar-key" id="search-bar-key">
+                    <a href="#">Mate 10</a>
+                    <a href="#">iPhone 12</a>
+                </div>
+                <div class="search-bar-history">
+                    <div id="search-key" class="con" style="display: none;">
+                        <p>
+                            <label>热门搜索</label>
+                        </p>
+                        <ul id="search-key-list">
+                            <li><a href="javascript:void(0);" target="_blank" onclick="">Mate 30E pro</a></li>
+                            <li><a href="javascript:void(0);" target="_blank" onclick="">nova8 Pro</a></li>
+                            <li><a href="javascript:void(0);" target="_blank" onclick="">WATHCH FIT</a></li>
+                            <li><a href="javascript:void(0);" target="_blank" onclick="">MateBook D</a></li>
+                            <li><a href="javascript:void(0);" target="_blank" onclick="">平板</a></li>
+                            <li><a href="javascript:void(0);" target="_blank" onclick="">华为智慧屏S</a></li>
+                            <li><a href="javascript:void(0);" target="_blank" onclick="">耳机</a></li>
+                            <li><a href="javascript:void(0);" target="_blank" onclick="">P40</a></li>
+                            <li><a href="javascript:void(0);" target="_blank" onclick="">手表</a></li>
+                            <li><a href="javascript:void(0);" target="_blank" onclick="">音箱</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="right fr">
+            <div class="shopping-cart">我的购物车&nbsp;&nbsp;
+                <i class="iconfont icon-gouwuche"></i>
+                <i class="shoping-count">0</i>
+            </div>
+
+        </div>
+    </div>
+</div>
+<!--头部 end-->
+<script type="text/javascript">
+    /* 搜索栏*/
+    $(function () {
+
+//input获得焦点，#search-bar-key消失
+        $('#search-kw').focus(function () {
+            $('#search-bar-key').css("display", "none");
+            $("#search-key").css("display", "block");
+        });
+//input失去焦点，#search-bar-key出现
+        $('#search-kw').blur(function () {
+            $('#search-bar-key').css("display", "block");
+            $("#search-key").css("display", "none");
+        });
+    })
+</script>
