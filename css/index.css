@@ -43,10 +43,6 @@
     z-index: 411;
 }
 
-.layout {
-    width: 1200px;
-    margin: 0 auto;
-}
 
 .shortcut a {
     color: #afafaf;
@@ -342,7 +338,7 @@
 }
 
 .arrow-left {
-    left: 0;
+    left: 20%;
     background-position: 0 -72px;
     right: auto;
 }
@@ -352,7 +348,7 @@
 }
 
 .arrow-right {
-    right: 150px;
+    right: 15%;
     background-position: -80px -72px;
     left: auto;
 }

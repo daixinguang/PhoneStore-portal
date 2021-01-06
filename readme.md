@@ -1,3 +1,10 @@
+# 2021-01-06
+>实现
+1. search.html
+2. item.html
+>TODO:
+1. search.html的js
+2. item.html的js
 # 2021-01-05
 > 实现
 1. 快捷栏shortcut在移动端（iPhone X）适配有点问题
@@ -10,14 +17,14 @@
 1. 轮播图js
 2. top-ad 广告关闭js
 3. footer的复用
-4. index.html(基本完成)
-5. search.html（未完成）
-6. item.html（未完成）
+4. index.html(完成)
+
 > TODO:
 1. search.html
 2. item.css
 3.楼层导航float-main
-
+4. search.html
+5. item.html
 # 2021-01-03
 > 实现:
 1. PhoneStore首页：index.html--top ad、头部、导航、轮播图、好货

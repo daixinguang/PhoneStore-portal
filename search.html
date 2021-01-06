@@ -3,12 +3,526 @@
 <head>
     <meta charset="UTF-8">
     <title>PhoneStore--Search</title>
-    <link rel="stylesheet" href="js/vue/vue.js">
-    <link href="css/vuetify.css" rel="stylesheet">
-    <script src="js/vue/vuetify.js"></script>
-    <script src="js/axios.js"></script>
-</head>formatPrice
+    <link rel="stylesheet" href="css/webbase.css">
+    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="fonts/iconfont.css">
+    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="css/pages-list.css">
+    <script src="js/jquery-3.5.1.js"></script>
+    <style>
+        .nav {
+            width: 100%;
+            height: 33px;
+            border-bottom: 3px solid #f30213;
+        }
+
+        .nav .layout li {
+            float: left;
+        }
+
+        .nav .layout li a {
+            height: 33px;
+            padding: 0 22px;
+            text-align: center;
+            font-size: 14px;
+            font-weight: 700;
+            line-height: 33px;
+            color: #333;
+        }
+
+        .nav .layout li.title {
+            height: 33px;
+            background: #f30213;
+            color: #fff;
+            font-size: 14px;
+            line-height: 33px;
+            padding: 0 40px;
+            text-align: center;
+        }
+
+        .searchWrap {
+            min-width: 1200px;
+        }
+
+        .sui-breadcrumb li {
+            float: left;
+            font-size: 15px;
+            line-height: 18px;
+        }
+
+        .sui-breadcrumb > li + li:before {
+            content: ">\00a0";
+            padding: 0 5px;
+            color: #ccc;
+            font-family: Arial;
+        }
+
+        .btn-more {
+            background-color: transparent !important;
+            padding: 5px 20px;
+            cursor: pointer;
+            border: 1px solid #ccc;
+            border-radius: 20px;
+        }
+
+        .top-pagination {
+            display: block;
+            padding: 3px 15px;
+            font-size: 11px;
+            font-weight: 700;
+            line-height: 18px;
+            color: #999;
+            text-shadow: 0 1px 0 rgba(255, 255, 255, .5);
+            text-transform: uppercase;
+            float: right;
+            margin-top: 6px;
+        }
+
+        .top-pagination span {
+            margin-right: 10px;
+        }
+
+        .btn-arrow, .btn-arrow:visited, .btn-arrow:link, .btn-arrow:active {
+            width: 46px;
+            height: 23px;
+            border: 1px solid #DDD;
+            background: #FFF;
+            line-height: 23px;
+            font-family: "\5b8b\4f53";
+            text-align: center;
+            font-size: 16px;
+            color: #AAA;
+            text-decoration: none;
+        }
+
+        .skus li {
+            list-style: none;
+            display: inline-block;
+            float: left;
+            margin-left: 2px;
+            border: 2px solid #f3f3f3;
+        }
+
+        .skus li.selected {
+            border: 2px solid #dd1144;
+        }
+
+        .skus img {
+            width: 25px;
+            height: 25px;
+        }
+
+    </style>
+</head>
 <body>
+
+<!--头部 start-->
+<div class="top-header"></div>
+<script type="text/javascript">$(".top-header").load("header.html");</script>
+<!--头部 end-->
+<div class="nav">
+    <div class="layout">
+
+        <ul>
+            <li class="title">手机品牌</li>
+            <li><a href="#">HUAWEI</a></li>
+            <li><a href="#">IPhone</a></li>
+            <li><a href="#">HONOR</a></li>
+            <li><a href="#">VIVO</a></li>
+            <li><a href="#">OPPO</a></li>
+            <li><a href="#">MI</a></li>
+            <li><a href="#" class="more">更多</a></li>
+
+        </ul>
+    </div>
+</div>
+<div class="searchWrap">
+    <div class="layout">
+        <!--面包屑导航 -->
+        <div class="bread">
+            <ul class="fl sui-breadcrumb">
+                <li><span>全部结果:</span></li>
+                <li><a href="#">手机</a></li>
+                <li><span>手机通讯</span></li>
+            </ul>
+            <ul class="tags-choose"></ul>
+            <div class="clearfix"></div>
+        </div>
+        <!--筛选-->
+        <div class="clearfix selector">
+            <div class="type-wrap">
+                <div class="fl key">操作系统</div>
+                <div class="fl value">
+                    <ul class="type-list">
+                        <li><a>Android</a></li><!---->
+                        <li><a>其他</a></li>
+                    </ul>
+                </div>
+                <div class="fl ext"></div>
+            </div>
+            <div class="type-wrap">
+                <div class="fl key">CPU品牌</div>
+                <div class="fl value">
+                    <ul class="type-list">
+                        <li><a>骁龙（Snapdragon)</a></li>
+                        <li><a>其他</a></li>
+                    </ul>
+                </div>
+                <div class="fl ext"></div>
+            </div>
+            <div class="type-wrap">
+                <div class="fl key">CPU核数</div>
+                <div class="fl value">
+                    <ul class="type-list">
+                        <li><a>八核</a></li>
+                        <li><a>四核</a></li>
+                        <li><a>其他</a></li>
+                    </ul>
+                </div>
+                <div class="fl ext"></div>
+            </div>
+            <div class="type-wrap">
+                <div class="fl key">CPU频率</div>
+                <div class="fl value">
+                    <ul class="type-list">
+                        <li><a>1.0-1.5GHz</a></li>
+                        <li><a>2.0-2.5GHz</a></li>
+                        <li><a>1.5-2.0GHz</a></li>
+                        <li><a>2.5GHz以上</a></li>
+                    </ul>
+                </div>
+                <div class="fl ext"></div>
+            </div>
+            <div class="type-wrap">
+                <div class="fl key">内存</div>
+                <div class="fl value">
+                    <ul class="type-list">
+                        <li><a>4GB</a></li>
+                        <li><a>2GB</a></li>
+                        <li><a>3GB</a></li>
+                        <li><a>6GB</a></li>
+                        <li><a>8GB</a></li>
+                    </ul>
+                </div>
+                <div class="fl ext"></div>
+            </div>
+            <div class="type-wrap" style="display: none;">
+                <div class="fl key">机身存储</div>
+                <div class="fl value">
+                    <ul class="type-list">
+                        <li><a>64GB</a></li>
+                        <li><a>16GB</a></li>
+                        <li><a>32GB</a></li>
+                        <li><a>128GB</a></li>
+                    </ul>
+                </div>
+                <div class="fl ext"></div>
+            </div>
+            <div class="type-wrap" style="display: none;">
+                <div class="fl key">主屏幕尺寸（英寸）</div>
+                <div class="fl value">
+                    <ul class="type-list">
+                        <li><a>5.5-6.0英寸</a></li>
+                        <li><a>5.0-5.5英寸</a></li>
+                        <li><a>6.0英寸以上</a></li>
+                    </ul>
+                </div>
+                <div class="fl ext"></div>
+            </div>
+            <div class="type-wrap" style="display: none;">
+                <div class="fl key">前置摄像头</div>
+                <div class="fl value">
+                    <ul class="type-list">
+                        <li><a>500-1000万</a></li>
+                        <li><a>1000-1500万</a></li>
+                        <li><a>1500-2000万</a></li>
+                    </ul>
+                </div>
+                <div class="fl ext"></div>
+            </div>
+            <div class="type-wrap" style="display: none;">
+                <div class="fl key">后置摄像头</div>
+                <div class="fl value">
+                    <ul class="type-list">
+                        <li><a>1000-1500万</a></li>
+                        <li><a>500-1000万</a></li>
+                        <li><a>1500-2000万</a></li>
+                    </ul>
+                </div>
+                <div class="fl ext"></div>
+            </div>
+            <div class="type-wrap" style="display: none;">
+                <div class="fl key">电池容量（mAh）</div>
+                <div class="fl value">
+                    <ul class="type-list">
+                        <li><a>3000-4000mAh</a></li>
+                        <li><a>4000mAh以上</a></li>
+                        <li><a>2000-3000mAh</a></li>
+                    </ul>
+                </div>
+                <div class="fl ext"></div>
+            </div>
+            <div class="type-wrap" style="text-align: center;">
+                <button type="button" class="btn-more" style="">
+                    <div class="btn__content">
+                        更多
+                        <i aria-hidden="true" class="iconfont icon-xia"></i></div>
+                </button>
+                <button type="button" class="btn-more" style="display: none;">
+                    <div class="btn__content">
+                        收起
+                        <i aria-hidden="true" class="iconfont icon-shang"></i></div>
+                </button>
+            </div>
+        </div>
+        <div class="details">
+            <div class="sui-navbar">
+                <div class="navbar-inner filter">
+                    <ul class="sui-nav">
+                        <li class="active"><a href="#">综合</a></li>
+                        <li><a href="#">销量</a></li>
+                        <li><a href="#">新品</a></li>
+                        <li><a href="#">评价</a></li>
+                        <li><a href="#">价格</a></li>
+                    </ul>
+                    <div class="top-pagination"><span>共 <i style="color: rgb(34, 34, 34);">47</i> 商品</span> <span><i
+                            style="color: red;">1</i>/3</span> <a href="#" class="btn-arrow"
+                                                                  style="display: inline-block;">&lt;</a> <a href="#"
+                                                                                                             class="btn-arrow"
+                                                                                                             style="display: inline-block;">&gt;</a>
+                    </div>
+                </div>
+            </div>
+            <div class="goods-list">
+                <ul class="yui3-g">
+                    <li class="yui3-u-1-5">
+                        <div class="list-wrap">
+                            <div class="p-img"><a href="#" target="_blank"><img
+                                    src="img/1524297578320.jpg" height="200"></a>
+                                <ul class="skus">
+                                    <li class="selected"><img src="img/mobile01.png"></li>
+                                    <li class=""><img src="img/mobile01.png"></li>
+                                </ul>
+                            </div>
+                            <div class="clearfix"></div>
+                            <div class="price"><strong><em>¥</em> <i>3575.00</i></strong></div>
+                            <div class="attr"><em>小米（MI） 小米MIX2S 手机 黑色 ...</em></div>
+                            <div class="cu"><em><span>促</span>新品现货发售！全面屏陶瓷手机，...</em></div>
+                            <div class="commit"><i class="command">已有2000人评价</i></div>
+                            <div class="operate"><a href="#" target="_blank"
+                                                    class="sui-btn btn-bordered btn-danger">加入购物车</a> <a
+                                    href="javascript:void(0);" class="sui-btn btn-bordered">对比</a> <a
+                                    href="javascript:void(0);" class="sui-btn btn-bordered">关注</a></div>
+                        </div>
+                    </li>
+                    <li class="yui3-u-1-5">
+                        <div class="list-wrap">
+                            <div class="p-img"><a href="#" target="_blank"><img
+                                    src="img/1524297578320.jpg" height="200"></a>
+                                <ul class="skus">
+                                    <li class="selected"><img src="img/mobile01.png"></li>
+                                    <li class=""><img src="img/mobile01.png"></li>
+                                </ul>
+                            </div>
+                            <div class="clearfix"></div>
+                            <div class="price"><strong><em>¥</em> <i>3575.00</i></strong></div>
+                            <div class="attr"><em>小米（MI） 小米MIX2S 手机 黑色 ...</em></div>
+                            <div class="cu"><em><span>促</span>新品现货发售！全面屏陶瓷手机，...</em></div>
+                            <div class="commit"><i class="command">已有2000人评价</i></div>
+                            <div class="operate"><a href="#" target="_blank"
+                                                    class="sui-btn btn-bordered btn-danger">加入购物车</a> <a
+                                    href="javascript:void(0);" class="sui-btn btn-bordered">对比</a> <a
+                                    href="javascript:void(0);" class="sui-btn btn-bordered">关注</a></div>
+                        </div>
+                    </li>
+                    <li class="yui3-u-1-5">
+                        <div class="list-wrap">
+                            <div class="p-img"><a href="#" target="_blank"><img
+                                    src="img/1524297578320.jpg" height="200"></a>
+                                <ul class="skus">
+                                    <li class="selected"><img src="img/mobile01.png"></li>
+                                    <li class=""><img src="img/mobile01.png"></li>
+                                </ul>
+                            </div>
+                            <div class="clearfix"></div>
+                            <div class="price"><strong><em>¥</em> <i>3575.00</i></strong></div>
+                            <div class="attr"><em>小米（MI） 小米MIX2S 手机 黑色 ...</em></div>
+                            <div class="cu"><em><span>促</span>新品现货发售！全面屏陶瓷手机，...</em></div>
+                            <div class="commit"><i class="command">已有2000人评价</i></div>
+                            <div class="operate"><a href="#" target="_blank"
+                                                    class="sui-btn btn-bordered btn-danger">加入购物车</a> <a
+                                    href="javascript:void(0);" class="sui-btn btn-bordered">对比</a> <a
+                                    href="javascript:void(0);" class="sui-btn btn-bordered">关注</a></div>
+                        </div>
+                    </li>
+                    <li class="yui3-u-1-5">
+                        <div class="list-wrap">
+                            <div class="p-img"><a href="#" target="_blank"><img
+                                    src="img/1524297578320.jpg" height="200"></a>
+                                <ul class="skus">
+                                    <li class="selected"><img src="img/mobile01.png"></li>
+                                    <li class=""><img src="img/mobile01.png"></li>
+                                </ul>
+                            </div>
+                            <div class="clearfix"></div>
+                            <div class="price"><strong><em>¥</em> <i>3575.00</i></strong></div>
+                            <div class="attr"><em>小米（MI） 小米MIX2S 手机 黑色 ...</em></div>
+                            <div class="cu"><em><span>促</span>新品现货发售！全面屏陶瓷手机，...</em></div>
+                            <div class="commit"><i class="command">已有2000人评价</i></div>
+                            <div class="operate"><a href="#" target="_blank"
+                                                    class="sui-btn btn-bordered btn-danger">加入购物车</a> <a
+                                    href="javascript:void(0);" class="sui-btn btn-bordered">对比</a> <a
+                                    href="javascript:void(0);" class="sui-btn btn-bordered">关注</a></div>
+                        </div>
+                    </li>
+                    <li class="yui3-u-1-5">
+                        <div class="list-wrap">
+                            <div class="p-img"><a href="#" target="_blank"><img
+                                    src="img/1524297578320.jpg" height="200"></a>
+                                <ul class="skus">
+                                    <li class="selected"><img src="img/mobile01.png"></li>
+                                    <li class=""><img src="img/mobile01.png"></li>
+                                </ul>
+                            </div>
+                            <div class="clearfix"></div>
+                            <div class="price"><strong><em>¥</em> <i>3575.00</i></strong></div>
+                            <div class="attr"><em>小米（MI） 小米MIX2S 手机 黑色 ...</em></div>
+                            <div class="cu"><em><span>促</span>新品现货发售！全面屏陶瓷手机，...</em></div>
+                            <div class="commit"><i class="command">已有2000人评价</i></div>
+                            <div class="operate"><a href="#" target="_blank"
+                                                    class="sui-btn btn-bordered btn-danger">加入购物车</a> <a
+                                    href="javascript:void(0);" class="sui-btn btn-bordered">对比</a> <a
+                                    href="javascript:void(0);" class="sui-btn btn-bordered">关注</a></div>
+                        </div>
+                    </li>
+                </ul>
+                <ul class="yui3-g">
+                    <li class="yui3-u-1-5">
+                        <div class="list-wrap">
+                            <div class="p-img"><a href="#" target="_blank"><img
+                                    src="img/1524297578320.jpg" height="200"></a>
+                                <ul class="skus">
+                                    <li class="selected"><img src="img/mobile01.png"></li>
+                                    <li class=""><img src="img/mobile01.png"></li>
+                                </ul>
+                            </div>
+                            <div class="clearfix"></div>
+                            <div class="price"><strong><em>¥</em> <i>3575.00</i></strong></div>
+                            <div class="attr"><em>小米（MI） 小米MIX2S 手机 黑色 ...</em></div>
+                            <div class="cu"><em><span>促</span>新品现货发售！全面屏陶瓷手机，...</em></div>
+                            <div class="commit"><i class="command">已有2000人评价</i></div>
+                            <div class="operate"><a href="#" target="_blank"
+                                                    class="sui-btn btn-bordered btn-danger">加入购物车</a> <a
+                                    href="javascript:void(0);" class="sui-btn btn-bordered">对比</a> <a
+                                    href="javascript:void(0);" class="sui-btn btn-bordered">关注</a></div>
+                        </div>
+                    </li>
+                    <li class="yui3-u-1-5">
+                        <div class="list-wrap">
+                            <div class="p-img"><a href="#" target="_blank"><img
+                                    src="img/1524297578320.jpg" height="200"></a>
+                                <ul class="skus">
+                                    <li class="selected"><img src="img/mobile01.png"></li>
+                                    <li class=""><img src="img/mobile01.png"></li>
+                                </ul>
+                            </div>
+                            <div class="clearfix"></div>
+                            <div class="price"><strong><em>¥</em> <i>3575.00</i></strong></div>
+                            <div class="attr"><em>小米（MI） 小米MIX2S 手机 黑色 ...</em></div>
+                            <div class="cu"><em><span>促</span>新品现货发售！全面屏陶瓷手机，...</em></div>
+                            <div class="commit"><i class="command">已有2000人评价</i></div>
+                            <div class="operate"><a href="#" target="_blank"
+                                                    class="sui-btn btn-bordered btn-danger">加入购物车</a> <a
+                                    href="javascript:void(0);" class="sui-btn btn-bordered">对比</a> <a
+                                    href="javascript:void(0);" class="sui-btn btn-bordered">关注</a></div>
+                        </div>
+                    </li>
+                    <li class="yui3-u-1-5">
+                        <div class="list-wrap">
+                            <div class="p-img"><a href="#" target="_blank"><img
+                                    src="img/1524297578320.jpg" height="200"></a>
+                                <ul class="skus">
+                                    <li class="selected"><img src="img/mobile01.png"></li>
+                                    <li class=""><img src="img/mobile01.png"></li>
+                                </ul>
+                            </div>
+                            <div class="clearfix"></div>
+                            <div class="price"><strong><em>¥</em> <i>3575.00</i></strong></div>
+                            <div class="attr"><em>小米（MI） 小米MIX2S 手机 黑色 ...</em></div>
+                            <div class="cu"><em><span>促</span>新品现货发售！全面屏陶瓷手机，...</em></div>
+                            <div class="commit"><i class="command">已有2000人评价</i></div>
+                            <div class="operate"><a href="#" target="_blank"
+                                                    class="sui-btn btn-bordered btn-danger">加入购物车</a> <a
+                                    href="javascript:void(0);" class="sui-btn btn-bordered">对比</a> <a
+                                    href="javascript:void(0);" class="sui-btn btn-bordered">关注</a></div>
+                        </div>
+                    </li>
+                    <li class="yui3-u-1-5">
+                        <div class="list-wrap">
+                            <div class="p-img"><a href="#" target="_blank"><img
+                                    src="img/1524297578320.jpg" height="200"></a>
+                                <ul class="skus">
+                                    <li class="selected"><img src="img/mobile01.png"></li>
+                                    <li class=""><img src="img/mobile01.png"></li>
+                                </ul>
+                            </div>
+                            <div class="clearfix"></div>
+                            <div class="price"><strong><em>¥</em> <i>3575.00</i></strong></div>
+                            <div class="attr"><em>小米（MI） 小米MIX2S 手机 黑色 ...</em></div>
+                            <div class="cu"><em><span>促</span>新品现货发售！全面屏陶瓷手机，...</em></div>
+                            <div class="commit"><i class="command">已有2000人评价</i></div>
+                            <div class="operate"><a href="#" target="_blank"
+                                                    class="sui-btn btn-bordered btn-danger">加入购物车</a> <a
+                                    href="javascript:void(0);" class="sui-btn btn-bordered">对比</a> <a
+                                    href="javascript:void(0);" class="sui-btn btn-bordered">关注</a></div>
+                        </div>
+                    </li>
+                    <li class="yui3-u-1-5">
+                        <div class="list-wrap">
+                            <div class="p-img"><a href="#" target="_blank"><img
+                                    src="img/1524297578320.jpg" height="200"></a>
+                                <ul class="skus">
+                                    <li class="selected"><img src="img/mobile01.png"></li>
+                                    <li class=""><img src="img/mobile01.png"></li>
+                                </ul>
+                            </div>
+                            <div class="clearfix"></div>
+                            <div class="price"><strong><em>¥</em> <i>3575.00</i></strong></div>
+                            <div class="attr"><em>小米（MI） 小米MIX2S 手机 黑色 ...</em></div>
+                            <div class="cu"><em><span>促</span>新品现货发售！全面屏陶瓷手机，...</em></div>
+                            <div class="commit"><i class="command">已有2000人评价</i></div>
+                            <div class="operate"><a href="#" target="_blank"
+                                                    class="sui-btn btn-bordered btn-danger">加入购物车</a> <a
+                                    href="javascript:void(0);" class="sui-btn btn-bordered">对比</a> <a
+                                    href="javascript:void(0);" class="sui-btn btn-bordered">关注</a></div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <div class="fr">
+                <div class="sui-pagination pagination-large">
+                    <ul>
+                        <li class="prev disabled"><a href="#">«上一页</a></li>
+                        <li class="active"><a href="#">1</a></li>
+                        <li class=""><a href="#">2</a></li>
+                        <li class=""><a href="#">3</a></li>
+                        <li class="dotted" style="display: none;"><span>...</span></li>
+                        <li class="next"><a href="#">下一页»</a></li>
+                    </ul>
+                    <div><span>共3页&nbsp;</span><span>
+      到第
+      <input type="text" class="page-num">
+      页 <button onclick="alert(1)" class="page-confirm">确定</button></span></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--footer start-->
+<div class="footer"></div>
+<script type="text/javascript">$(".footer").load("foot.html");</script>
+<!--footer end-->
 
 </body>
 </html>
