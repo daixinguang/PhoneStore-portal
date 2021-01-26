@@ -523,6 +523,26 @@
 <div class="footer"></div>
 <script type="text/javascript">$(".footer").load("foot.html");</script>
 <!--footer end-->
+<script type="text/javascript">
+    function getBrand(name, image) {
+        $.ajax({
+            url: "http://127.0.0.1:10010/api/item/brand/query",
+            type: "get",
+            dataType: "json",
+            data: {query: '', pagenum: '1',pagesize: '6'},
+            success: function (data) {
+                try {
+                    console.log(data)
+                } catch (e) {
+                    return false;
+                }
+            }
+        });
+    }
+    $(function (){
 
+        getBrand()
+    })
+</script>
 </body>
 </html>

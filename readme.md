@@ -1,3 +1,11 @@
+# run
+```
+live-server --port=9001
+或者 
+vue ui 启动
+```
+# 2021-01-26
+
 # 2021-01-06
 >实现
 1. search.html
